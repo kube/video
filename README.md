@@ -3,6 +3,8 @@ Teads Video Test
 
 This repository contains a port of [Broadway](https://github.com/mbebenita/Broadway) to TypeScript and ES Modules.
 
+Check the [demo here](https://kube.github.io/video).
+
 ### Development
 ```sh
 yarn start
