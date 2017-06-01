@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 12);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -289,10 +289,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const Player_1 = __webpack_require__(8);
-const MP4Reader_1 = __webpack_require__(7);
+const Player_1 = __webpack_require__(9);
+const MP4Reader_1 = __webpack_require__(8);
 const Bytestream_1 = __webpack_require__(1);
-const Size_1 = __webpack_require__(9);
+const Size_1 = __webpack_require__(10);
 const utils_1 = __webpack_require__(0);
 class MP4Player {
     constructor(stream, useWorkers, webgl, render) {
@@ -657,8 +657,32 @@ process.umask = function() { return 0; };
 ## ## ## :##
 ## ## ##*/
 Object.defineProperty(exports, "__esModule", { value: true });
+const Stream_1 = __webpack_require__(4);
+const MP4Player_1 = __webpack_require__(3);
+const video = __webpack_require__(2);
+const videoStream = new Stream_1.default(video);
+const player = new MP4Player_1.default(videoStream, true, true, true);
+document.getElementById('video-container').appendChild(player.canvas);
+player.play();
+
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/*#######.
+########",#:
+#########',##".
+##'##'## .##',##.
+## ## ## # ##",#.
+## ## ## ## ##'
+## ## ## :##
+## ## ##*/
+Object.defineProperty(exports, "__esModule", { value: true });
 const utils_1 = __webpack_require__(0);
-const Track_1 = __webpack_require__(10);
+const Track_1 = __webpack_require__(11);
 const repeatString = (str, n = 0) => Array(n + 1).join(str);
 // const BOX_HEADER_SIZE = 8
 // const FULL_BOX_HEADER_SIZE = BOX_HEADER_SIZE + 4
@@ -967,7 +991,7 @@ exports.default = MP4Reader;
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -999,7 +1023,7 @@ p.webgl // contains the used rendering mode. if you pass auto to webgl you can s
 p.decode(<binary>)
 */
 const Decoder = __webpack_require__(13);
-const YUVCanvas_1 = __webpack_require__(11);
+const YUVCanvas_1 = __webpack_require__(12);
 class Player {
     constructor(options) {
         this.options = options || {};
@@ -1226,7 +1250,7 @@ exports.default = Player;
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1262,7 +1286,7 @@ exports.default = Size;
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1475,7 +1499,7 @@ exports.default = Track;
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1895,30 +1919,6 @@ class YUVCanvas {
     }
 }
 exports.default = YUVCanvas;
-
-
-/***/ }),
-/* 12 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-/*#######.
-########",#:
-#########',##".
-##'##'## .##',##.
-## ## ## # ##",#.
-## ## ## ## ##'
-## ## ## :##
-## ## ##*/
-Object.defineProperty(exports, "__esModule", { value: true });
-const Stream_1 = __webpack_require__(4);
-const MP4Player_1 = __webpack_require__(3);
-const video = __webpack_require__(2);
-const container = document.getElementById('video-container');
-const player = new MP4Player_1.default(new Stream_1.default(video), true, true, true);
-container.appendChild(player.canvas);
-player.play();
 
 
 /***/ }),
